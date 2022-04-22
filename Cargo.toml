@@ -1,0 +1,23 @@
+[package]
+name = "rate-limiter"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+parking_lot = { version = "0.12", default-features = false, features = [] }
+
+[dev-dependencies]
+criterion = { version = "0.3", features = ["html_reports"] }
+rand = { version = "0.8", default-features = false, features = [
+  "getrandom",
+  "small_rng",
+] }
+snmalloc-rs = "0.2"
+tokio = { version = "1", default-features = false, features = [
+  "parking_lot",
+  "rt-multi-thread",
+] }
+
+[[bench]]
+name = "bench"
+harness = false
